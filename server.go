@@ -42,7 +42,12 @@ func main() {
 }
 
 func startHttpServer(mux *tigertonic.TrieServeMux) {
-	server := tigertonic.NewServer(":8080", tigertonic.ApacheLogged(mux))
+	port := "8080"
+	if os.Getenv("port") != "" {
+		port = os.Getenv("PORT")
+	}
+	
+	server := tigertonic.NewServer(":" + port, tigertonic.ApacheLogged(mux))
 
 	err := server.ListenAndServe()
 	if nil != err {
