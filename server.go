@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+
 	"github.com/jinzhu/gorm"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -27,10 +28,10 @@ func main() {
 
 	fruitDao := FruitDao{DB: db}
 	fruitResource := FruitResource{fruitDao}
- 	dbHealthCheck := DbHealthCheck{DB: db}
+	dbHealthCheck := DbHealthCheck{DB: db}
 	//health check
 	bindGet(mux, "/healthCheck/database", dbHealthCheck.Check)
-	
+
 	bindGet(mux, "/fruits", fruitResource.findFruits)
 	bindGet(mux, "/fruits/search", fruitResource.searchFruits)
 	//POST
@@ -43,11 +44,11 @@ func main() {
 
 func startHttpServer(mux *tigertonic.TrieServeMux) {
 	port := "8080"
-	if os.Getenv("port") != "" {
+	if os.Getenv("PORT") != "" {
 		port = os.Getenv("PORT")
 	}
-	
-	server := tigertonic.NewServer(":" + port, tigertonic.ApacheLogged(mux))
+
+	server := tigertonic.NewServer(":"+port, tigertonic.ApacheLogged(mux))
 
 	err := server.ListenAndServe()
 	if nil != err {
@@ -83,11 +84,11 @@ func openDB() *gorm.DB {
 	dbSql, _ := openSqlDB()
 	db, err := gorm.Open("sqlite3", dbSql)
 	if err != nil {
-		log.Fatalln(err)	
+		log.Fatalln(err)
 	}
 	db.DB()
 	db.AutoMigrate(&Fruit{})
-	
+
 	return &db
 }
 
