@@ -1,0 +1,27 @@
+{
+	"ImportPath": "github.com/tszpinda/grocery-go",
+	"GoVersion": "go1.3.3",
+	"Deps": [
+		{
+			"ImportPath": "github.com/jinzhu/gorm",
+			"Rev": "25772352c2e1cb6a9c00472999015a32dd646218"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/hstore",
+			"Comment": "go1.0-cutoff-47-g93e9980",
+			"Rev": "93e9980741c9e593411b94e07d5bad8cfb4809db"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-sqlite3",
+			"Rev": "542ae647f8601bafd96233961b150cae198e0295"
+		},
+		{
+			"ImportPath": "github.com/rcrowley/go-metrics",
+			"Rev": "dee209f2455f101a5e4e593dea94872d2c62d85d"
+		},
+		{
+			"ImportPath": "github.com/rcrowley/go-tigertonic",
+			"Rev": "f6383f169f863e16cd78f2b9b135ad9b1941af3d"
+		}
+	]
+}
