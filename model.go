@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-// Fruid is main model
+// Fruit is main model
 type Fruit struct {
 	ID      int
 	Name    string
