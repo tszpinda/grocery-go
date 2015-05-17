@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+// FruitResource is API entry for fruit objects
 type FruitResource struct {
 	FruitDao FruitDao
 }
@@ -30,7 +31,7 @@ func (t FruitResource) updateFruitPrice(u *url.URL, h http.Header, price *float6
 	idStr := u.Query().Get("id")
 	id, _ := strconv.Atoi(idStr)
 
-	fruit := t.FruitDao.FindById(&id)
+	fruit := t.FruitDao.FindByID(&id)
 	if fruit == nil {
 		return http.StatusNotFound, nil, nil, nil
 	}

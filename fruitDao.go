@@ -4,6 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+// FruitDao is a repository to store Fruits
 type FruitDao struct {
 	DB *gorm.DB
 }
@@ -14,6 +15,7 @@ func (t FruitDao) add(fruit *Fruit) *Fruit {
 	return fruit
 }
 
+// AddAll adds all given fruits to store 
 func (t FruitDao) AddAll(fruits []*Fruit) []*Fruit {
 	for _, f := range fruits {
 		t.add(f)
@@ -21,29 +23,34 @@ func (t FruitDao) AddAll(fruits []*Fruit) []*Fruit {
 	return fruits
 }
 
+// FindAll finds fruits in store
 func (t FruitDao) FindAll() *[]Fruit {
-	fruits := make([]Fruit, 0)
+	var fruits []Fruit
 	t.DB.Find(&fruits)
 	return &fruits
 }
 
+// FindByName finds matching fruits by name
 func (t FruitDao) FindByName(name string) *[]Fruit {
-	fruits := make([]Fruit, 0)
+	var fruits []Fruit
 	t.DB.Where("name like ?", "%"+name+"%").Find(&fruits)
 	return &fruits
 }
 
-func (t FruitDao) FindById(id *int) *Fruit {
+// FindByID finds fruit by its id
+func (t FruitDao) FindByID(id *int) *Fruit {
 	fruit := Fruit{}
 	t.DB.Find(&fruit, *id)
 	return &fruit
 }
 
+// Update updates fruit
 func (t FruitDao) Update(fruit *Fruit) *Fruit {
 	t.DB.Save(fruit)
 	return fruit
 }
 
+// RemoveAll removes all fruits in store
 func (t FruitDao) RemoveAll() {
 	t.DB.Delete(Fruit{})
 }

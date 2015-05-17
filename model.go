@@ -4,8 +4,9 @@ import (
 	"time"
 )
 
+// Fruid is main model
 type Fruit struct {
-	Id      int
+	ID      int
 	Name    string
 	Price   float64
 	Stock   int

@@ -39,10 +39,10 @@ func main() {
 	//PUT add override
 	bindPut(mux, "/fruits/addOrOverride", fruitResource.addOrOverride)
 
-	startHttpServer(mux)
+	startHTTPServer(mux)
 }
 
-func startHttpServer(mux *tigertonic.TrieServeMux) {
+func startHTTPServer(mux *tigertonic.TrieServeMux) {
 	port := "8080"
 	if os.Getenv("PORT") != "" {
 		port = os.Getenv("PORT")
