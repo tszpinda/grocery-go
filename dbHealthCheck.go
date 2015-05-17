@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/jinzhu/gorm"
 	"net/http"
 	"net/url"
+
+	"github.com/jinzhu/gorm"
 )
 
 // DbHealthCheck API to check database health
@@ -16,7 +17,7 @@ type HealthCheckResponse struct {
 	Healty bool
 }
 
-// Check is public API to inspect database health 
+// Check is public API to inspect database health
 func (t DbHealthCheck) Check(u *url.URL, h http.Header, _ interface{}) (int, http.Header, *HealthCheckResponse, error) {
 	r := HealthCheckResponse{false}
 

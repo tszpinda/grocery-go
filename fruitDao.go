@@ -15,7 +15,7 @@ func (t FruitDao) add(fruit *Fruit) *Fruit {
 	return fruit
 }
 
-// AddAll adds all given fruits to store 
+// AddAll adds all given fruits to store
 func (t FruitDao) AddAll(fruits []*Fruit) []*Fruit {
 	for _, f := range fruits {
 		t.add(f)
