@@ -1,6 +1,6 @@
 # grocery-go
 
-[![wercker status](https://app.wercker.com/status/db78d475e3bd8f5d6cb36169b53919d9/m "wercker status")](https://app.wercker.com/project/bykey/db78d475e3bd8f5d6cb36169b53919d9)
+[![wercker status](https://app.wercker.com/status/a7ae5d7b6ecbd81c0ad63780438d8392/m "wercker status")](https://app.wercker.com/project/bykey/a7ae5d7b6ecbd81c0ad63780438d8392)
 
 ## An example app using:
 - go / golang
